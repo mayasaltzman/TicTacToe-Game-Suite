@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+}
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
+
+repositories {
+    mavenCentral()
+}
+jar {
+    manifest {
+        attributes 'Main-Class': 'game.GameUI'
+    }
+    archiveBaseName = 'A3'
+}
+
+
+task run;
+run.doFirst {
+    println "To run the program:\njava -jar build/libs/A3.jar"
+    println "To run from class files:\n java -cp build/classes/java/main game.GameUI\n java -cp build/classes/java/main tictactoe.TicTacToeTextUI"
+}
+dependencies {
+    testImplementation('junit:junit:4.13')
+}
